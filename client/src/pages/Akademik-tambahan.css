@@ -1,0 +1,87 @@
+﻿/* ===== Kartu guru bisa diklik (tautan menutupi seluruh kartu) ===== */
+.gt-kartu { position: relative; }
+.gt-tautan { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.gt-tautan:focus-visible { outline: 3px solid #0f5a3a; outline-offset: 2px; }
+
+/* ===== Halaman profil guru (prefix pf-) ===== */
+.pf { padding-bottom: 64px; }
+.pf-balik { display: inline-flex; align-items: center; gap: 4px; margin: 8px 0 16px; color: #0f5a3a; font-weight: 600; text-decoration: none; }
+.pf-balik:hover { text-decoration: underline; }
+
+.pf-kartu { background: #fff; border: 1px solid #e2ebe5; border-radius: 24px; padding: 28px; box-shadow: 0 1px 3px rgba(15, 90, 58, 0.06); }
+.pf-kepala { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 24px; }
+.pf-kepala h2 { margin: 0 0 6px; font-size: 24px; }
+.pf-aksi { margin-left: auto; display: flex; gap: 8px; }
+
+.pf-btn { padding: 10px 20px; border: 1px solid #0f5a3a; border-radius: 999px; background: #0f5a3a; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.pf-btn:hover { background: #0b4a2f; }
+.pf-btn.hantu { background: transparent; color: #0f5a3a; }
+.pf-btn.hantu:hover { background: #e8f4ed; }
+
+.pf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.pf-bidang.lebar { grid-column: 1 / -1; }
+.pf-bidang label { display: block; margin-bottom: 4px; color: #5d6f64; font-size: 13px; font-weight: 700; }
+.pf-input { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #dfe9e2; border-radius: 12px; background: #fff; color: #16261d; font: inherit; font-size: 15px; outline: none; }
+.pf-input:focus { border-color: #0f5a3a; box-shadow: 0 0 0 3px rgba(15, 90, 58, 0.15); }
+.pf-input:disabled { padding-left: 0; border-color: transparent; background: transparent; color: #16261d; opacity: 1; -webkit-text-fill-color: #16261d; appearance: none; resize: none; }
+
+.pf-info { margin: 16px 0 0; color: #0f5a3a; font-weight: 600; }
+
+@media (max-width: 640px) {
+  .pf-grid { grid-template-columns: 1fr; }
+  .pf-aksi { margin-left: 0; width: 100%; }
+}
+
+/* ===== Header profil dengan sampul & foto ===== */
+.pf-kartu { padding: 0; overflow: hidden; }
+.pf-badan { padding: 0 28px 28px; }
+
+.pf-sampul {
+  height: 110px;
+  background:
+    radial-gradient(circle at 12% 25%, rgba(255, 255, 255, 0.22), transparent 42%),
+    radial-gradient(circle at 88% 85%, rgba(255, 255, 255, 0.14), transparent 40%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0 12px, transparent 12px 24px),
+    linear-gradient(135deg, #0f5a3a, #1f8a5b 60%, #4cb487);
+}
+
+.pf-kepala { align-items: flex-start; margin-bottom: 20px; }
+.pf-nama { margin-top: 62px; }
+.pf-kepala .pf-aksi { margin-top: 62px; }
+
+.pf-foto { position: relative; flex-shrink: 0; width: 112px; height: 112px; margin-top: -56px; }
+.pf-foto-bulat {
+  width: 100%; height: 100%; box-sizing: border-box; overflow: hidden;
+  display: grid; place-items: center;
+  border: 5px solid #fff; border-radius: 50%;
+  background: #cfe8da; color: #0f5a3a; font-size: 38px; font-weight: 800;
+  box-shadow: 0 6px 18px rgba(15, 90, 58, 0.25);
+}
+.pf-foto-bulat img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.pf-foto-ubah, .pf-foto-hapus {
+  position: absolute; bottom: 4px; width: 38px; height: 38px; box-sizing: border-box;
+  display: grid; place-items: center; padding: 0;
+  border: 3px solid #fff; border-radius: 50%; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.pf-foto-ubah { right: -4px; background: #0f5a3a; color: #fff; overflow: hidden; }
+.pf-foto-ubah:hover { background: #0b4a2f; }
+.pf-foto-ubah:focus-within { outline: 3px solid #0f5a3a; outline-offset: 2px; }
+.pf-file { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.pf-foto-hapus { left: -4px; background: #fff; color: #b3261e; }
+.pf-foto-hapus:hover { background: #fdecea; }
+
+.pf-foto-petunjuk { margin: 0 0 16px; color: #5d6f64; font-size: 13px; }
+
+@media (max-width: 640px) {
+  .pf-badan { padding: 0 18px 24px; }
+  .pf-nama { margin-top: 0; flex-basis: 100%; }
+  .pf-kepala .pf-aksi { margin-top: 0; }
+}
+
+/* ===== Jabatan lengkap di halaman profil ===== */
+.pf-jabatan-blok { margin-top: 16px; }
+.pf-label { display: block; margin-bottom: 6px; color: #5d6f64; font-size: 13px; font-weight: 700; }
+.pf-jabatan-daftar { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-jabatan-daftar .gt-lencana { display: inline-block; max-width: 100%; margin: 0; padding: 5px 12px; white-space: normal; line-height: 1.4; }

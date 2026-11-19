@@ -1,0 +1,25 @@
+.dft-fitur { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 22px; }
+.dft-fitur li { display: flex; align-items: flex-start; gap: 16px; }
+.dft-fitur li > svg { flex: none; margin-top: 2px; color: var(--hijau, #0b5d3b); }
+.dft-fitur strong { display: block; margin-bottom: 2px; font-size: 1rem; color: var(--hijau-tua, #0e3f2f); }
+.dft-fitur span { display: block; font-size: .88rem; line-height: 1.5; color: #5b6b7a; }
+
+/* Pilihan Siswa / Guru */
+.dft-peran {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  margin: 0 0 16px; padding: 5px;
+  border-radius: 999px; background: #eef3f0;
+}
+.dft-peran button {
+  padding: 9px 12px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--navy, #1b2a6b);
+  font: inherit; font-size: .88rem; font-weight: 700; cursor: pointer;
+}
+.dft-peran button.aktif {
+  background: var(--hijau, #0b5d3b); color: #fff;
+  box-shadow: 0 2px 8px rgba(11, 93, 59, .25);
+}
+
+@media (max-width: 900px) {
+  .dft-fitur { display: none; }
+}

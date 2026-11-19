@@ -1,0 +1,16 @@
+.lgn-baris { display: flex; align-items: center; justify-content: space-between; margin: 6px 0 18px; }
+
+/* Kotak centang bergaya */
+.lgn-ingat { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: .88rem; font-weight: 500; color: var(--navy, #1b2a6b); cursor: pointer; }
+.lgn-ingat input { position: absolute; opacity: 0; width: 20px; height: 20px; margin: 0; cursor: pointer; }
+.lgn-kotak { display: grid; place-items: center; width: 20px; height: 20px; border: 2px solid #9fb1bf; border-radius: 5px; background: #fff; color: transparent; }
+.lgn-ingat input:checked + .lgn-kotak { background: var(--hijau, #0b5d3b); border-color: var(--hijau, #0b5d3b); color: #fff; }
+.lgn-ingat input:focus-visible + .lgn-kotak { outline: 3px solid rgba(11, 93, 59, .3); outline-offset: 2px; }
+
+.lgn-lupa { border: 0; background: none; padding: 0; font: inherit; font-size: .88rem; font-weight: 700; color: var(--hijau, #0b5d3b); cursor: pointer; }
+.lgn-lupa:hover { text-decoration: underline; }
+
+/* Pemilih peran: tiga pilihan (gaya dasar .dft-peran ada di Daftar.css) */
+.dft-peran.lgn-tiga { grid-template-columns: repeat(3, 1fr); }
+
+.lgn-catatan { margin: 16px 0 0; text-align: center; font-size: .85rem; color: #5b6b7a; }

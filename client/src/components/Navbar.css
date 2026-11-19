@@ -1,0 +1,154 @@
+/* ===== Dropdown menu ===== */
+.dd { position: relative; }
+.dd > .menu-item {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: .85rem;
+  cursor: pointer;
+}
+.dd > .menu-item:hover { background: #f1f7f4; }
+.dd > .menu-item.aktif { background: var(--hijau-muda); color: var(--hijau); }
+.dd-panah { transition: transform .2s; }
+.dd-panah.buka { transform: rotate(180deg); }
+
+.dd-daftar {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 30;
+  min-width: 240px; margin: 0; padding: 8px; list-style: none;
+  background: #fff; border: 1px solid var(--garis); border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(20, 60, 90, .15);
+}
+/* jembatan tak terlihat agar dropdown tidak menutup saat kursor melintas */
+.dd-daftar::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+.dd-daftar a { display: block; padding: 10px 14px; border-radius: 10px; font-size: .9rem; font-weight: 600; color: var(--navy); }
+.dd-daftar a:hover { background: #f0f6f3; }
+.dd-daftar a.aktif { background: var(--hijau-muda); color: var(--hijau); }
+
+/* ===== Layar lebar (>= 1360px): rapatkan supaya semua muat satu baris ===== */
+@media (min-width: 1360px) {
+  header.navbar {
+    gap: .6rem;
+    padding: .5rem 1.5rem .5rem 2rem;
+    max-width: 100%;
+  }
+  header.navbar .brand { flex: none; font-size: 1.15rem; }
+  header.navbar .brand img { width: 2.6rem; height: 2.6rem; }
+  header.navbar .panel { min-width: 0; }
+  header.navbar .menu { min-width: 0; margin-left: .75rem; gap: .05rem; }
+  header.navbar .menu-item { padding: 0 .6rem; gap: .35rem; font-size: .8rem; }
+  header.navbar .dd > .menu-item { font-size: .8rem; }
+  header.navbar .cari { width: 7rem; margin-right: .25rem; padding: 0 .8rem; }
+  header.navbar .aksi { flex: none; gap: .4rem; }
+  header.navbar .aksi .btn { padding: 0 .9rem; font-size: .82rem; }
+}
+
+/* ===== Bagian khusus panel samping disembunyikan di layar lebar ===== */
+.panel-kepala,
+.panel-latar { display: none; }
+
+/* ===== Di bawah 1360px: menu jadi panel samping (drawer) dari kanan ===== */
+@media (max-width: 1359px) {
+  .navbar { flex-wrap: wrap; padding: .6rem 1.25rem; }
+  .brand { font-size: 1.1rem; }
+  .hamburger { display: block; margin-left: auto; }
+
+  .navbar .panel-latar {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(14, 63, 47, .45);
+    animation: latar-masuk .25s ease;
+  }
+
+  .navbar .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: min(20rem, 86vw);
+    height: 100vh;
+    height: 100dvh;
+    flex-basis: auto;
+    padding: 0 1.25rem 1.5rem;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: -12px 0 32px rgba(20, 60, 90, .18);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform .28s ease, visibility 0s linear .28s;
+  }
+  .navbar .panel.buka {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform .28s ease, visibility 0s;
+  }
+
+  .navbar .panel-kepala {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0 -1.25rem .25rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border-bottom: 1px solid var(--garis);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--hijau-tua);
+  }
+  .navbar .panel-tutup {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--hijau);
+    cursor: pointer;
+  }
+  .navbar .panel-tutup:hover { background: #f1f7f4; }
+
+  .navbar .menu {
+    flex: none;
+    flex-direction: column;
+    margin-left: 0;
+    gap: .15rem;
+  }
+  .navbar .menu-item { width: 100%; height: 2.8rem; font-size: .95rem; }
+  .navbar .dd > .menu-item { width: 100%; }
+  .navbar .cari { width: 100%; margin-right: 0; flex: none; font-size: .9rem; }
+  .navbar .aksi { flex: none; }
+  .navbar .aksi .btn { flex: 1; }
+
+  .dd-daftar {
+    position: static;
+    min-width: 0;
+    margin: 4px 0 4px 1rem;
+    padding: 4px;
+    border: 0;
+    border-left: 2px solid var(--hijau-muda);
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .dd-daftar::before { display: none; }
+}
+
+@keyframes latar-masuk {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar .panel,
+  .navbar .panel.buka { transition: none; }
+  .navbar .panel-latar { animation: none; }
+}

@@ -1,0 +1,91 @@
+.ak {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  background:
+    linear-gradient(180deg, #e3f0fb 0%, rgba(227, 240, 251, .55) 45%, rgba(255, 255, 255, 0) 100%),
+    url('../assets/background.png') center bottom / cover no-repeat;
+}
+
+.ak-kartu {
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 18px 50px rgba(20, 60, 90, .14);
+  text-align: center;
+}
+
+.ak-ikon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto .75rem;
+  border-radius: 50%;
+  background: var(--hijau-muda);
+  color: var(--hijau);
+}
+
+.ak-kartu h1 {
+  margin: 0 0 .4rem;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--hijau-tua);
+}
+.ak-sub { margin: 0 0 1.1rem; font-size: .95rem; line-height: 1.5; }
+
+.ak-peran { display: grid; gap: .6rem; margin-bottom: 1.1rem; }
+
+.ak-opsi {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .9rem;
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--garis);
+  border-radius: 14px;
+  background: #fff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.ak-opsi:hover { background: #f1f7f4; }
+.ak-opsi.aktif { border-color: var(--hijau); background: var(--hijau-muda); }
+
+.ak-opsi-ikon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #f0f6f3;
+  color: var(--hijau);
+}
+.ak-opsi.aktif .ak-opsi-ikon { background: var(--hijau); color: #fff; }
+
+.ak-opsi-teks { display: grid; gap: 2px; text-align: left; }
+.ak-opsi-teks strong { color: var(--navy); font-size: .98rem; }
+.ak-opsi-teks small { color: var(--teks); font-size: .82rem; }
+
+.ak-aksi { display: flex; gap: .75rem; }
+.ak-aksi .btn { flex: 1; height: 2.9rem; font-size: .98rem; }
+.ak-aksi .btn.mati { opacity: .45; cursor: not-allowed; }
+
+.ak-petunjuk { margin: .7rem 0 0; font-size: .85rem; color: #8b97a6; }
+
+.ak-kembali {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--hijau);
+}
+.ak-kembali:hover { text-decoration: underline; }
