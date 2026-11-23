@@ -13,10 +13,7 @@
     "express": "^4.19.2",
     "express-rate-limit": "^7.4.0",
     "helmet": "^7.1.0",
-    "icons": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.11.0",
-    "react": "^19.3.1",
-    "react-router-dom": "^7.18.5"
+    "mysql2": "^3.11.0"
   }
 }
